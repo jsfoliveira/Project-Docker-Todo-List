@@ -1,163 +1,85 @@
-- [Trybe Todo-App 🖥️ 📝](#trybe-todo-app-️-)
-  - [Requisitos](#requisitos)
-  - [Instalação](#instalação)
-    - [Estrutura do aplicativo](#estrutura-do-aplicativo)
-    - [Com quem devo me preocupar primeiro?](#com-quem-devo-me-preocupar-primeiro)
-      - [Instalando o back-end](#instalando-o-back-end)
-      - [Instalando o front-end](#instalando-o-front-end)
-      - [Utilizando o aplicativo de testes](#utilizando-o-aplicativo-de-testes)
-      - [Dicas sobre a conteinerização de aplicações NodeJS](#dicas-sobre-a-conteinerização-de-aplicações-nodejs)
-      - [Aproveitando os arquivos `node_modules.tar.gz`](#aproveitando-os-arquivos-node_modulestargz)
-### Trybe Todo-App 🖥️ 📝
+# 	:woman_technologist: Project Docker Todo List
 
-Olá! Esse é o aplicativo de tarefas **Trybe Todo-App**!
+Esse projeto contém uma série de informações sobre o que eu aprendi aqui na Trybe ao longo  do curso de desenvolvimento web da Trybe. <br>
+Foi o meu primeiro contato com os containers do Docker.
 
-Com ele, você pode se organizar de maneira simples, adicionando, marcando e/ou removendo suas tarefas.
+## :rocket:Começando
+Esse projeto foi proposto pelo curso de desenvolvimento web da Trybe.
+### Desenvolvimento
+Esse proejto foi desenvolvido no bloco de back-end, usei containers do Docker e fiz um Dockerfile.
+### Commits
+Os commits foram feitos de acordo com os requisitos finalizados.
+### Branch
+Todo o projeto foi feita na branch 'juliana-oliveira-project-docker-todo-list', isso por conta da exigência do curso.
+### Instalação
+Antes de realizar o projeto, precisei instalar as dependências usando npm install.
+### Testes
+Os testes usando foram ESLint e Cypress, através dos **comandos**: <br>
+* npm test
+### Autores
+Esse foi um projeto individual,que desenvolvido somente por Juliana Oliveira.
+### Ferramentas usadas
+Foi usado Visual Studio Code, além do Trello que auxiliou na organização das tarefas.
+### Framework usado
+Nenhum.
+### Informações Importantes
+Na pasta docker-commands foram criados arquivos commandx.dc. O x equivale o requisito que foi feito. Exemplo: command01.dc equivale ao requisito 1.
 
-Uma verdadeira *mão-na-roda* para acompanhar seu progresso!
+## :footprints:Requisitos
+### Metodologia usada
+No trabalho do desenvolvimento de software a gente sempre tem prazos, muitas vezes os prazos são apertados.<br>
+Por outro lado, eu não quero criar algo que não entendo perfeitamente, como também fazer códigos rápidos pode levar a erros que podem demorar muito pra corrigir.<br>
+Por isso, usei e sempre uso o método Baby Steps, que é uma estratégia de abordar o desafio passo à passo, defensivamente.<br>
+Baby steps é um termo em inglês que quer dizer passos de bebê. Refere-se a fazer as coisas, quaisquer que sejam, devagar, com calma, passo a passo.
+#### :footprints:Requisito 1
+Crie um container em modo interativo, sem rodá-lo, nomeando-o como 01container e utilizando a imagem alpine na versão 3.12.
+* O container não deve ser inicializado, somente criado;
+* O container deve estar preparado para acesso interativo.
+* Lembre-se que um parâmetro não é necessariamente aplicável a apenas um comando.
+#### :footprints:Requisito 2
+Inicie o container 01container.
+#### :footprints:Requisito 3
+Liste os containers filtrando pelo nome 01container.
+#### :footprints:Requisito 4
+Execute o comando cat /etc/os-release no container 01container sem se acoplar a ele.
+#### :footprints:Requisito 5
+Remova o container 01container.
+#### :footprints:Requisito 6
+Execute o comando cat /etc/os-release no container 01container sem se acoplar a ele.
+#### :footprints:Requisito 7
+Rode um novo container com a imagem nginx com a versão 1.21.3-alpine em segundo plano nomeando-o como 02images e mapeando sua porta padrão de acesso para porta 3000 do sistema hospedeiro.
+* Que é possível ter acesso ao container pelo endereço localhost:3000.
+#### :footprints:Requisito 8
+Pare o container 02images que está em andamento.
+#### :footprints:Requisito 9
+Gere uma build a partir do Dockerfile do back-end do todo-app nomeando a imagem para todobackend.
+* Se existe um arquivo Dockerfile em ./docker/todo-app/back-end/:
+* O Dockerfile deve rodar uma imagem node utilizando a versão 14;
+* Recomenda-se o uso da variante -alpine, pois ela é otimizada para desempenho;
+* Lembre-se de consultar o README do todo-app para validar os requisitos da aplicação.
+* Deve estar com a porta 3001 exposta;
+* Deve adicionar o arquivo node_modules.tar.gz a imagem;
+* Deve copiar todos os arquivos da pasta back-end para a imagem;
+* Ao iniciar a imagem deve rodar o comando npm start.
+* Se ao buildar o Dockerfile o nome da imagem gerada é igual a todobackend.
+#### :footprints:Requisito 10
+Gere uma build a partir do Dockerfile do front-end do todo-app nomeando a imagem para todofrontend.
+* Se existe um arquivo Dockerfile em ./docker/todo-app/front-end/:
+* O Dockerfile pode rodar uma imagem node utilizando a versão 14;
+* Recomenda-se o uso da variante -alpine, pois ela é otimizada para desempenho;
+* Lembre-se de consultar o README do todo-app para validar os requisitos da aplicação.
+* Deve estar com a porta 3000 exposta;
+* Deve adicionar o arquivo node_modules.tar.gz a imagem, de maneira que ele seja extraído dentro do container;
+* Deve copiar todos os arquivos da pasta front-end para a imagem;
+* Ao iniciar a imagem deve rodar o comando npm start;
+* Se ao buildar o Dockerfile o nome da imagem gerada é igual a todofrontend.
+#### :footprints:Requisito 11
+Gere uma build a partir do Dockerfile dos testes do todo-app nomeando a imagem para todotests.
+* O comando ADD do Dockerfile, também pode ser utilizado para descompactar arquivos dentro do container.
+* Se existe um arquivo Dockerfile em ./docker/todo-app/tests/:
+* O Dockerfile deve rodar a imagem mjgargani/puppeteer:trybe1.0 para que os testes funcionem;
+* Deve adicionar o arquivo node_modules.tar.gz a imagem;
+* Deve copiar todos os arquivos da pasta tests para a imagem;
+* Ao iniciar a imagem deve rodar o comando npm test;
+* Se ao buildar o Dockerfile o nome da imagem gerada é igual a todotests.
 
-![Alt Text](./intro.gif)
-
-#### Requisitos
-
-- [NodeJS LTS](https://github.com/nodesource/distributions/blob/master/README.md#debinstall) (14 ou mais).
-  - O Sistema Operacional [deve suportar o NodeJS](https://github-com.translate.goog/nodejs/build/issues/2168?_x_tr_sl=en&_x_tr_tl=pt&_x_tr_hl=pt-BR&_x_tr_pto=nui).
-  - Aplicações como o `create-react-app` [requerem essa versão mínima](https://pt-br.reactjs.org/docs/create-a-new-react-app.html#create-react-app) para funcionar corretamente
-
-
-#### Instalação
-
-Esse é um aplicativo em [NodeJS](https://nodejs.org/pt-br/about/), que possui **dois componentes principais** (`front` e `back`) e um **teste de saúde da aplicação**:
-- `Front-end` Essa aplicação consome nossa API e nos retorna nossa lista;
-- `Back-end` Onde a **mágica** acontece! Nosso back-end possui um banco de dados interno, onde são salvas nossas tarefas;
-- `Testes` Onde validamos a comunicação entre `front` e `back-end`.
-
-##### Estrutura do aplicativo
-
-```bash
-todo-app/
-├── README.md # este arquivo
-├── intro.gif # demonstração
-├── back-end # responsável por processar nossos dados através de requisições
-│   ├── node_modules.tar.gz # pacote opcional, para facilitar a criação de imagens no Docker
-│   ├── package.json # principal componente da aplicação
-│   ├── package-lock.json # arquivo responsável por otimizar a instalação em outros ambientes
-│   └── src
-│       ├── api
-│       │   ├── routes.js
-│       │   └── server.js
-│       ├── controllers
-│       │   └── Tasks.js
-│       ├── database
-│       │   ├── tasks.bkp.json
-│       │   └── tasks.json
-│       ├── models
-│       │   └── Tasks.js
-│       └── utils
-│           └── fileHandler.js
-├── front-end # responsável por ser uma interface amigável para nosso back-end
-│   ├── node_modules.tar.gz # pacote opcional, para facilitar a criação de imagens no Docker
-│   ├── package.json # principal componente da aplicação
-│   ├── package-lock.json # arquivo responsável por otimizar a instalação em outros ambientes
-│   ├── public
-│   │   ├── favicon.ico
-│   │   ├── index.html
-│   │   ├── logo192.png
-│   │   ├── logo512.png
-│   │   ├── manifest.json
-│   │   └── robots.txt
-│   ├── README.md
-│   └── src
-│       ├── App.css
-│       ├── App.js
-│       ├── App.test.js
-│       ├── components
-│       │   ├── ItemAdd
-│       │   │   ├── index.jsx
-│       │   │   └── styles.css
-│       │   ├── ItemList
-│       │   │   ├── index.jsx
-│       │   │   └── styles.css
-│       │   ├── ItemRow
-│       │   │   ├── index.jsx
-│       │   │   └── styles.css
-│       │   └── TaskReset
-│       │       └── index.jsx
-│       ├── context
-│       │   └── taskContext.js
-│       ├── index.css
-│       ├── index.js
-│       ├── logo.png
-│       ├── reportWebVitals.js
-│       ├── setupTests.js
-│       └── utils
-│           └── fetch.js
-└── tests # responsável por validar essa comunicação
-    ├── e2e
-    │   └── health_status.test.js
-    ├── jest.config.js
-    ├── node_modules.tar.gz # pacote opcional, para facilitar a criação de imagens no Docker
-    ├── package.json # principal componente da aplicação
-    └── package-lock.json # arquivo responsável por otimizar a instalação em outros ambientes
-```
-
-##### Com quem devo me preocupar primeiro?
-
-- Como o `back-end` é o coração 💚 dessa aplicação, é possível utilizar ele sem um `Front-end`, nesse caso, é possível consumi-lo através de requisições REST, através de seu aplicativo de requisições favorito, como Postman, Insomnia, HTTPie, etc!
-  - É recomendável roda-lo primeiro para garantir que o front-end tem da onde conseguir as informações de tarefas!
-
-- O `front-end`, por outro lado, dá uma cara mais elegante 🌟 para nosso app, e é preferencialmente recomendado para consumo do nosso back-end!
-  - É recomendável deixa-lo por segundo, já que ainda que o `front` funcione, ele precisa de uma API para consumir - papel do nosso back-end.
-
-###### Instalando o back-end
-
-- Acesse a pasta `./todo-app/back-end`;
-- Instalar a aplicação utilizando o comando `npm install`;
-- O processo não deve retornar erros. `Warns` *(Avisos)* não impedem seu funcionamento;
-- Rodar a aplicação com `npm start`;
-- Por padrão, essa aplicação funciona a partir da porta `3001`;
-
-###### Instalando o front-end
-
-- Acesse a pasta `./todo-app/front-end`;
-- Instalar a aplicação utilizando o comando `npm install`;
-- O processo não deve retornar erros. `Warns` *(Avisos)* não impedem seu funcionamento;
-- Rodar a aplicação com `npm start`;
-- Esse aplicativo requer, **excepcionalmente**, um arquivo `.env`, já contido em sua pasta no repositório;
-- Por padrão, essa aplicação funciona a partir da porta `3000`;
-- Essa aplicação pode receber variáveis de ambiente para mudar o acesso do `back-end`:
-  - `REACT_APP_API_HOST`: padrão `localhost`;
-    - *(Docker)* Aqui você deve indicar o nome do container do `back-end`;
-  - `REACT_APP_API_PORT`: padrão `3001`.
-    - *(Docker)* Aqui você deve indicar a porta que você definiu internamente no container do `back-end`;
-
-###### Utilizando o aplicativo de testes
-
-- ⚠️ Essa aplicação só funciona **se associada a uma rede Docker**;
-- Acesse a pasta `./todo-app/front-end`;
-- Instalar a aplicação utilizando o comando `npm install`;
-- O processo não deve retornar erros. `Warns` *(Avisos)* não impedem seu funcionamento;
-- Rodar a aplicação com `npm test`;
-- Essa aplicação pode receber variáveis de ambiente para mudar o acesso ao front-end:
-  - `FRONT_HOST`: padrão `localhost`;
-    - *(Docker)* Aqui você deve indicar o nome do container do `front-end`;
-  - `FRONT_PORT`: padrão `3000`.
-    - *(Docker)* Aqui você deve indicar a porta que você definiu internamente no container do `front-end`;
-
-###### Dicas sobre a conteinerização de aplicações NodeJS
-
-⚠️ Aplicações `NodeJS`, necessitam de algumas coisas para funcionar:
-- Um `package.json`, que provê informações e scripts de inicialização para a aplicação, **esse arquivo é obrigatório no funcionamento e deve estar no container do app referido**;
-- Um `package-lock.json`, que provê um "cache" de pacotes, necessários a aplicação, **esse arquivo não precisa ser copiado para o container, mas ele precisa existir para a aplicação funcionar, ou seja, caso ele não exista no container, você precisará instalar a aplicação `NodeJS`, dentro do container, obrigatoriamente**;
-- Uma pasta `node_modules`, **que é criada *(ou aproveitada, caso já exista)* durante a instalação - que é obrigatória - no container**;
-- Aplicativos fonte (`source`, `src`) e complementares (por exemplo `public`, `.env*`), **esses arquivos são da aplicação propriamente dita e devem estar no container**, caso não estejamos trabalhando apenas com _builds_ ou _compilações_ desses aplicativos *(que podem ter funcionamento diferente)*.
-
-###### Aproveitando os arquivos `node_modules.tar.gz`
-
-Aplicações `NodeJS`, durante suas respectivas instalações, geram uma pasta nomeada como `node_modules`, que contém tudo o que a aplicação precisa pra funcionar.
-
-Esse repositório já prove em cada serviço, um pacote compactado contendo essas dependências, chamado `node_modules.tar.gz`.
-
-Dessa forma, em um `Dockerfile`, é possível aproveitar esse recurso para adicionar esse pacote à imagem, lembrando aqui, que o comando `ADD` do `Dockerfile`, além de adicionar arquivos, também faz a extração de pacotes, como nesse caso.
-
-Caso você opte por utilizar esse recurso, o *build* de suas imagens levará menos tempo, já que, nesse caso, **a instalação será mais rápida, aproveitando esses recursos**.
